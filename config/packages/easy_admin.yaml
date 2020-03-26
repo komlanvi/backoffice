@@ -1,0 +1,52 @@
+easy_admin:
+    site_name: Covid-19 TG
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+    entities:
+        # List the entity class name you want to manage
+        User:
+            class: App\Entity\User
+            list:
+                fields: ['email', 'firstName', 'lastName', { property: 'createdAt', type: datetime }]
+            form:
+                fields: ['email', 'password', 'firstName', 'lastName']
+
+        Video:
+            class: App\Entity\Video
+            list:
+                fields:
+                    - description
+                    - { property: 'originalName', label: 'Name' }
+                    - { property: 'fileName', label: 'Video', template: 'video.html.twig', base_path: '%app.path.videos%' }
+                    - { property: 'insertedAt', type: datetime }
+            show:
+                fields:
+                    - description
+                    - { property: 'originalName', label: 'Name' }
+                    - { property: 'fileName', label: 'Video', template: 'video.html.twig', base_path: '%app.path.videos%'  }
+                    - { property: 'insertedAt', type: datetime }
+            form:
+                fields:
+                    - description
+                    - { property: 'file', type: 'vich_file' }
+
+        Audio:
+            class: App\Entity\Audio
+            list:
+                fields:
+                    - description
+                    - { property: 'originalName', label: 'Name' }
+                    - { property: 'fileName', label: 'Audio', template: 'audio.html.twig', base_path: '%app.path.audios%' }
+                    - { property: 'insertedAt', type: datetime }
+            show:
+                fields:
+                    - description
+                    - { property: 'originalName', label: 'Name' }
+                    - { property: 'fileName', label: 'Audio', template: 'audio.html.twig', base_path: '%app.path.audios%' }
+                    - { property: 'insertedAt', type: datetime }
+            form:
+                fields:
+                    - description
+                    - { property: 'file', type: 'vich_file' }
