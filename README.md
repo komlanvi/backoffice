@@ -4,8 +4,8 @@
 You need to have previously installed:
  - php 7.1 or higher
  - Composer
-   - For [Linux or Mac]("https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos")
-   - For [Windows]("https://getcomposer.org/doc/00-intro.md#installation-windows")
+   - For [Linux or Mac](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos "Download Composer on Linux / Mac")
+   - For [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows "Download Composer on Windows")
  - MySQL 5.7 or higher
 
 ## Install dependencies
