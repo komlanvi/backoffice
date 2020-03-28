@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VideoRepository")
@@ -16,11 +17,13 @@ class Video
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="UUID")
      * @ORM\Column(type="guid")
+     * @Groups({"group1"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"group1"})
      */
     private $description;
 
@@ -28,6 +31,12 @@ class Video
      * @ORM\Column(type="datetime")
      */
     private $insertedAt;
+
+    /**
+     * @var string
+     * @Groups({"group1"})
+     */
+    private $filePath;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,6 +53,7 @@ class Video
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @var string | null
+     * @Groups({"group1"})
      */
     private $originalName;
 
@@ -126,8 +136,27 @@ class Video
         return $this;
     }
 
+    public function setInsertedAt(\DateTimeInterface $insertedAt): self
+    {
+        $this->insertedAt = $insertedAt;
+
+        return $this;
+    }
+
     public function getInsertedAt(): ?\DateTimeInterface
     {
         return $this->insertedAt;
+    }
+
+    public function getFilePath() : ?string
+    {
+        return $this->filePath;
+    }
+
+    public function setFilePath(string $hostName, string $pathToUploads) : self
+    {
+        $this->filePath = $hostName . $pathToUploads . '/' . $this->fileName;
+
+        return $this;
     }
 }
