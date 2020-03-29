@@ -7,7 +7,7 @@ You need to have previously installed:
    - For [Linux or Mac](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos "Download Composer on Linux / Mac")
    - For [Windows](https://getcomposer.org/doc/00-intro.md#installation-windows "Download Composer on Windows")
  - MySQL 5.7 or higher
- - To be able to upload file > 2 MB don't forget to update `post_max_size` and `upload_max_filesize` parameters in your server `php.ini file`.
+ - To be able to upload file > 2 MB don't forget to update `post_max_size` and `upload_max_filesize` parameters in your server `php.ini file.
 
 ## Install dependencies
 `composer install`
@@ -23,3 +23,10 @@ You need to have previously installed:
 
 ## Start the server
 `symfony server:start`
+
+## API Endpoints
+ 
+ - `GET /api/videos` returns all videos
+ - `GET /api/videos/:id` returns the video with id
+ - `GET /api/audios` returns all audios
+ - `GET /api/audios/:id` returns the audio with id
