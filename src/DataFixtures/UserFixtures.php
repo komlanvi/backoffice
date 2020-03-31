@@ -31,6 +31,14 @@ class UserFixtures extends Fixture
             $manager->persist($user);
         }
 
+        $apiUser = new User();
+        $apiUser
+            ->setUsername("ApiUser")
+            ->setPassword("ApiUser")
+            ->setApiToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9");
+
+        $manager->persist($apiUser);
+
         $manager->flush();
     }
 }
